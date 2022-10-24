@@ -1,12 +1,18 @@
 import React from 'react'
-import { Comentario } from './styles'
+// ** corrigir o import
+import { ContainerComentario } from './styled'
 
-export default function Comentario(props) {
+export function Comentario(props) {
     return (
-        <Comentario>
-            <input placeholder="Adicionar comentario" />
-            <button onclick={props.adicionaComentario}>Comentar Post</button>
-            <p>{props.post.comentario}</p>
-        </Comentario>
+        <ContainerComentario>
+            <input placeholder="Adicionar comentario"
+            // ** falta value e onChange
+             value={props.comentario}
+              onChange={props.onChangeComentario} />
+              {/* onClick sem camelCase */}
+            <button onClick={props.adicionaComentario}>Comentar Post</button>
+            {/* está sendo passado como comentarioDoPost, mas acessado como props.post.comentario */}
+            <p>{props.comentarioDoPost}</p>
+        </ContainerComentario>
     )
 }
